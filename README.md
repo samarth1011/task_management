@@ -1,1 +1,1 @@
-Have added readme in documents attached via mail
+Have added all steps in documents attached in mail
