@@ -10,9 +10,9 @@ class TaskListCreateView(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
-    filterset_fields = ['priority', 'status', 'due_date']  # Allow filtering by these fields
-    ordering_fields = ['due_date', 'priority']  # Allow sorting
-    search_fields = ['title', 'description']  # Allow searching by these fields
+    filterset_fields = ['priority', 'status', 'due_date'] 
+    ordering_fields = ['due_date', 'priority']  
+    search_fields = ['title', 'description']  
 
     def get_queryset(self):
         return Task.objects.filter(assigned_to=self.request.user)
