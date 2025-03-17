@@ -42,7 +42,21 @@ INSTALLED_APPS = [
     'users',
     'tasks',
     'django_filters'
+    "channels",
 ]
+
+# Redis for WebSockets
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
+
+ASGI_APPLICATION = "task_manager.asgi.application"
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
